@@ -96,6 +96,7 @@ if(player1 > player2) {
 }
 
 console.log(`++++++++ fine metodo 1 +++++++`);
+console.log(`++++++++ metodo 2 +++++++`);
 
 
 
@@ -107,20 +108,40 @@ console.log(`++++++++ fine metodo 1 +++++++`);
 
 // Creo un ciclo in cui definisco il numero di round , e ad ogni round ciascun giocatore genererà un numero per player
 
+const player1wins = [];
+const player2wins = [];
+
 
 for (let i=0 ; i <= 10; i++) {
 const player1 = Math.floor(Math.random() * 6) + 1 ;
 const player2 = Math.floor(Math.random() * 6) + 1 ;
+const nRounds = i;
 
 if (player1 > player2) {
     console.log(`Il round ${i} è stato vinto da Player 1 perchè ${player1} batte ${player2}`);
+    player1wins.push(`V`);
 } else if (player2 > player1) {
     console.log(`Il round ${i} è stato vinto da Player 2 perchè ${player2} batte ${player1}`);
+    player2wins.push(`V`);
 } else {
     console.log(`Il round ${i} è stato pareggiato perchè ${player1} e ${player2} sono uguali`);
 }
 
 }
+
+
+// COMPLICAZIONE INUTILE MA DIVERTENTE
+if (player1wins.length > player2wins.length) {
+console.log(`dopo ${nRounds} round Player 1 vince ${player1wins.length} round e player 2 vince ${player2wins.length} round quindi Player 1 è il vincitore`);
+
+} else if (player2wins.length > player1wins.length) {
+    console.log(`Player 2 vince ${player2wins.length} round e player 1 vince ${player1wins.length} round quindi Player 2 è il vincitore`);
+
+  
+}  else {
+        console.log(`Player 1 e Player 2 sono Pari perchè hanno vinto entrambi ${player1wins.length} round`);
+    }
+
 
 
 
